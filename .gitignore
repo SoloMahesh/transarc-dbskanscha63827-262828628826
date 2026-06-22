@@ -1,0 +1,19 @@
+# Ignore the large original PDF presentation
+assets/Tensarc_PPT.pdf
+
+# Ignore all 180+ extracted PDF images
+assets/images/img-*.jpg
+assets/images/img-*.png
+
+# EXCEPT the exact 8 images currently used in the landing page
+!assets/images/img-000.jpg
+!assets/images/img-072.jpg
+!assets/images/img-074.jpg
+!assets/images/img-076.jpg
+!assets/images/img-031.jpg
+!assets/images/img-071.jpg
+!assets/images/img-073.jpg
+!assets/images/img-075.jpg
+
+# Ignore temporary python build scripts
+*.py
