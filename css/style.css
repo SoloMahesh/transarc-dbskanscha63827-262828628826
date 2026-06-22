@@ -1,5 +1,20 @@
 /* css/style.css */
 
+/* Responsive Global UI Scaling (Mimics ~80% browser zoom on laptops) */
+html {
+    font-size: 16px;
+}
+@media (min-width: 1024px) {
+    html {
+        font-size: 13.5px;
+    }
+}
+@media (min-width: 1536px) {
+    html {
+        font-size: 15px;
+    }
+}
+
 /* Core Styles and Overrides */
 .material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
