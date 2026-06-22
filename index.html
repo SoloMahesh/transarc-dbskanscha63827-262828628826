@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>TENSARC - Architecture That Defies Gravity</title>
+    <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/aida-public/AB6AXuBjCk-JXTbIPSPH3j6iymrcHJITGb4Dez2vrXAk-u5nwAIftAMmk27YKJBjsvXjKk8I9oPhkQWIZ0oOOwZD3w7nqpSSCgtydhrfB2222HrST9Rdr4nHMGiVg8vfsvPGr-wMXBC1X-fAEcAx3YfdBVPWNAywtVzG2iiN4P6tpdE6eAx0MhWuD61eB-ixp9caHD15W2fxjVOQJrEozn7N9QuVjJo1Lr7RzOqk9nvH79whKS-6m-07cPKCqSFD5cJrlh45FMe2YUs5v-Qi">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet"/>
+    
+    <!-- Tailwind via CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f6f3f4",
+                        "secondary": "#2d6197",
+                        "primary-fixed": "#d9e3f5",
+                        "secondary-fixed": "#d2e4ff",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e4e2e3",
+                        "surface-bright": "#fbf9fa",
+                        "primary": "#000000",
+                        "secondary-container": "#92c1fe",
+                        "on-surface": "#1b1b1c",
+                        "inverse-surface": "#303031",
+                        "on-background": "#1b1b1c",
+                        "inverse-on-surface": "#f3f0f1",
+                        "secondary-fixed-dim": "#a0c9ff",
+                        "surface": "#fbf9fa",
+                        "outline-variant": "#c5c6cc",
+                        "tertiary-fixed-dim": "#e0c1a9",
+                        "on-primary-fixed-variant": "#3e4755",
+                        "surface-tint": "#555f6e",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#eae7e8",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#7b8494",
+                        "on-secondary-container": "#144f84",
+                        "primary-container": "#121c29",
+                        "on-surface-variant": "#44474c",
+                        "tertiary": "#000000",
+                        "tertiary-fixed": "#fedcc3",
+                        "on-tertiary-fixed": "#291809",
+                        "primary-fixed-dim": "#bdc7d8",
+                        "on-secondary-fixed": "#001c37",
+                        "surface-dim": "#dcd9da",
+                        "outline": "#75777c",
+                        "inverse-primary": "#bdc7d8",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#584230",
+                        "on-secondary-fixed-variant": "#07497d",
+                        "surface-variant": "#e4e2e3",
+                        "on-primary-fixed": "#121c29",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-container": "#9a7f69",
+                        "surface-container": "#f0edee",
+                        "on-secondary": "#ffffff",
+                        "background": "#fbf9fa",
+                        "tertiary-container": "#291809",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "stack-lg": "80px",
+                        "margin-desktop": "80px",
+                        "stack-md": "48px",
+                        "stack-xl": "120px",
+                        "margin-mobile": "24px",
+                        "container-max": "1440px",
+                        "gutter": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Space Grotesk", "sans-serif"],
+                        "display-xl": ["Space Grotesk", "sans-serif"],
+                        "display-lg": ["Space Grotesk", "sans-serif"],
+                        "body-sm": ["Inter", "sans-serif"],
+                        "headline-lg-mobile": ["Space Grotesk", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "label-caps": ["Inter", "sans-serif"],
+                        "headline-md": ["Space Grotesk", "sans-serif"],
+                        "headline-lg": ["Space Grotesk", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-xl": ["96px", { "lineHeight": "100px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "display-lg": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-lg": ["20px", { "lineHeight": "32px", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "headline-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface antialiased overflow-x-hidden selection:bg-secondary-container selection:text-on-secondary-container no-select">
+    
+    <!-- TopNavBar -->
+    <nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-container-highest/80 backdrop-blur-xl border-b border-outline-variant/30 transition-all duration-300" id="navbar">
+        <div class="flex justify-between items-center w-full h-[80px] max-w-container-max mx-auto px-6 md:px-margin-desktop">
+            <div class="flex items-center gap-4">
+                <img alt="TENSARC Logo" class="h-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjCk-JXTbIPSPH3j6iymrcHJITGb4Dez2vrXAk-u5nwAIftAMmk27YKJBjsvXjKk8I9oPhkQWIZ0oOOwZD3w7nqpSSCgtydhrfB2222HrST9Rdr4nHMGiVg8vfsvPGr-wMXBC1X-fAEcAx3YfdBVPWNAywtVzG2iiN4P6tpdE6eAx0MhWuD61eB-ixp9caHD15W2fxjVOQJrEozn7N9QuVjJo1Lr7RzOqk9nvH79whKS-6m-07cPKCqSFD5cJrlh45FMe2YUs5v-Qi"/>
+                <span class="font-display-lg text-[24px] font-bold tracking-tighter text-primary dark:text-on-surface">TENSARC</span>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8">
+                <a class="font-label-caps text-label-caps uppercase tracking-[0.2em] text-on-surface-variant/70 dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors" href="#projects">Projects</a>
+                <a class="font-label-caps text-label-caps uppercase tracking-[0.2em] text-on-surface-variant/70 dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors" href="#services">Services</a>
+                <a class="font-label-caps text-label-caps uppercase tracking-[0.2em] text-on-surface-variant/70 dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors" href="#engineering">Engineering</a>
+                <a class="font-label-caps text-label-caps uppercase tracking-[0.2em] text-on-surface-variant/70 dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors" href="#about">About</a>
+            </div>
+            
+            <a href="#contact" class="hidden md:block bg-primary text-on-primary font-label-caps text-label-caps uppercase tracking-[0.2em] px-8 py-3 rounded-full hover:bg-secondary transition-colors duration-300 text-center">
+                Get a Free Estimate
+            </a>
+            
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden text-primary">
+                <span class="material-symbols-outlined text-3xl" data-icon="menu">menu</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Slide-in Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-[100] bg-surface flex flex-col justify-center items-center gap-8 md:hidden">
+        <button id="mobile-menu-close" class="absolute top-6 right-6 text-primary">
+            <span class="material-symbols-outlined text-4xl" data-icon="close">close</span>
+        </button>
+        <a class="font-display-sm text-2xl uppercase tracking-[0.1em] text-primary hover:text-secondary transition-colors" href="#projects">Projects</a>
+        <a class="font-display-sm text-2xl uppercase tracking-[0.1em] text-primary hover:text-secondary transition-colors" href="#services">Services</a>
+        <a class="font-display-sm text-2xl uppercase tracking-[0.1em] text-primary hover:text-secondary transition-colors" href="#engineering">Engineering</a>
+        <a class="font-display-sm text-2xl uppercase tracking-[0.1em] text-primary hover:text-secondary transition-colors" href="#about">About</a>
+        <a class="font-display-sm text-2xl uppercase tracking-[0.1em] text-primary hover:text-secondary transition-colors" href="#contact">Contact</a>
+    </div>
+
+    <!-- 1. Hero Section -->
+    <header class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 w-full h-full bg-surface-container-highest">
+            <div class="absolute inset-0 bg-cover bg-center scale-105" style="background-image: url('assets/images/img-000.jpg')"></div>
+            <div class="absolute inset-0 gradient-dark-overlay"></div>
+        </div>
+        <div class="relative z-10 text-center px-6 md:px-margin-desktop max-w-4xl mx-auto flex flex-col items-center pt-20">
+            <h1 class="font-display-xl text-5xl md:text-[120px] md:leading-[110px] text-on-primary text-shadow-md mb-6 tracking-tighter fade-up">
+                ARCHITECTURE THAT DEFIES GRAVITY
+            </h1>
+            <p class="font-body-lg text-body-lg text-on-primary/90 max-w-2xl mb-12 text-shadow-sm fade-up" style="transition-delay: 100ms;">
+                Designing and delivering world-class tensile structures that blend engineering precision with avant-garde form.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center fade-up" style="transition-delay: 200ms;">
+                <a href="#projects" class="bg-primary text-on-primary font-label-caps text-label-caps uppercase tracking-[0.2em] px-10 py-4 rounded-full hover:bg-secondary transition-all duration-300">
+                    Explore Projects
+                </a>
+                <a href="#contact" class="border border-on-primary text-on-primary font-label-caps text-label-caps uppercase tracking-[0.2em] px-10 py-4 rounded-full hover:bg-on-primary hover:text-primary transition-all duration-300">
+                    Request Project Quote
+                </a>
+            </div>
+        </div>
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 w-full px-margin-desktop flex flex-col items-center fade-up" style="transition-delay: 400ms;">
+            <a href="#projects" class="animate-bounce mb-8">
+                <span class="material-symbols-outlined text-on-primary opacity-70 hover:opacity-100 transition-opacity" data-icon="south">south</span>
+            </a>
+            <div class="w-full max-w-container-max mx-auto border-t border-on-primary/20 pt-6 flex justify-between items-center text-on-primary/80 font-label-caps text-label-caps uppercase tracking-widest hidden md:flex">
+                <div class="flex flex-col">
+                    <span class="text-2xl font-bold text-on-primary">100+</span>
+                    <span>Projects Delivered</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-2xl font-bold text-on-primary">Tier 1</span>
+                    <span>Premium Materials</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-2xl font-bold text-on-primary">Pan-India</span>
+                    <span>Execution Capability</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 2. Featured Projects -->
+        <section class="py-stack-xl px-6 md:px-margin-desktop max-w-container-max mx-auto bg-surface" id="projects">
+            <div class="mb-stack-md flex flex-col md:flex-row justify-between items-start md:items-end gap-4 fade-up">
+                <h2 class="font-display-lg text-4xl md:text-display-lg text-primary max-w-xl">Signature Projects</h2>
+                <a href="#real-time-gallery" class="font-label-caps text-label-caps uppercase tracking-[0.1em] text-primary hover:text-secondary transition-colors flex items-center gap-2">View All <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+                <!-- Large Featured -->
+                <div class="md:col-span-8 group relative overflow-hidden rounded-2xl bg-surface-container-low min-h-[400px] md:min-h-[600px] border border-outline-variant/30 fade-up">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('assets/images/img-072.jpg')"></div>
+                    <div class="absolute inset-0 gradient-dark-bottom"></div>
+                    <div class="absolute bottom-0 left-0 p-8 w-full z-10">
+                        <span class="font-label-caps text-label-caps text-secondary-container uppercase tracking-widest mb-2 block">Entrance Canopy</span>
+                        <h3 class="font-headline-lg text-3xl md:text-headline-lg text-on-primary mb-4">Ramoji Film City, Hyderabad</h3>
+                        <p class="font-body-md text-body-md text-on-primary/80 max-w-lg mb-6 hidden md:block">A monumental entrance structure designed to manage high footfall while serving as an iconic architectural statement.</p>
+                        <button class="text-on-primary border-b border-on-primary pb-1 font-label-caps text-label-caps uppercase tracking-widest hover:text-secondary-container hover:border-secondary-container transition-colors">Read Case Study</button>
+                    </div>
+                </div>
+                
+                <!-- Right Column Stack -->
+                <div class="md:col-span-4 flex flex-col gap-gutter">
+                    <div class="flex-1 group relative overflow-hidden rounded-2xl bg-surface-container-low min-h-[250px] md:min-h-[300px] border border-outline-variant/30 fade-up" style="transition-delay: 100ms;">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('assets/images/img-074.jpg')"></div>
+                        <div class="absolute inset-0 gradient-dark-bottom"></div>
+                        <div class="absolute bottom-0 left-0 p-6 w-full z-10">
+                            <span class="font-label-caps text-label-caps text-secondary-container uppercase tracking-widest mb-2 block">Atrium Cover</span>
+                            <h3 class="font-headline-sm text-xl md:text-headline-sm text-on-primary">HTC Global Services</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-1 group relative overflow-hidden rounded-2xl bg-surface-container-low min-h-[250px] md:min-h-[300px] border border-outline-variant/30 fade-up" style="transition-delay: 200ms;">
+                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('assets/images/img-076.jpg')"></div>
+                        <div class="absolute inset-0 gradient-dark-bottom"></div>
+                        <div class="absolute bottom-0 left-0 p-6 w-full z-10">
+                            <span class="font-label-caps text-label-caps text-secondary-container uppercase tracking-widest mb-2 block">Industrial Shelter</span>
+                            <h3 class="font-headline-sm text-xl md:text-headline-sm text-on-primary">Tata Advanced Systems</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Design Philosophy -->
+        <section class="py-stack-xl bg-surface-container-lowest border-y border-technical" id="about">
+            <div class="max-w-container-max mx-auto px-6 md:px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-stack-lg items-center">
+                <div class="fade-up order-2 md:order-1">
+                    <span class="font-label-caps text-label-caps text-secondary uppercase tracking-[0.2em] mb-4 block">Our Philosophy</span>
+                    <h2 class="font-display-lg text-4xl md:text-display-lg text-primary mb-8 leading-tight">Where Engineering Meets Art.</h2>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant mb-6">
+                        We view tensile architecture not merely as shelter, but as a medium of expression. By tensioning high-performance membranes over precisely calculated structural frames, we create forms that are impossible with traditional materials.
+                    </p>
+                    <p class="font-body-md text-body-md text-outline mb-8">
+                        The result is a structure that is lightweight, inherently strong, and visually breathtaking—embodying the perfect balance of forces.
+                    </p>
+                    <button class="border border-primary text-primary font-label-caps text-label-caps uppercase tracking-[0.2em] px-8 py-3 hover:bg-primary hover:text-on-primary transition-all duration-300 rounded-full">
+                        Discover Our Process
+                    </button>
+                </div>
+                <div class="relative h-[400px] md:h-[600px] rounded-2xl overflow-hidden fade-up order-1 md:order-2 shadow-2xl">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 hover:scale-105" style="background-image: url('assets/images/img-031.jpg')"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Engineering Process -->
+        <section class="py-stack-xl px-6 md:px-margin-desktop max-w-container-max mx-auto bg-surface" id="engineering">
+            <div class="mb-stack-lg text-center fade-up">
+                <h2 class="font-display-lg text-4xl md:text-display-lg text-primary mb-4">Precision Engineered</h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">From conceptual form-finding to final tensioning, every phase is rigorously calculated.</p>
+            </div>
+            
+            <div class="relative max-w-3xl mx-auto py-8">
+                <!-- Vertical Line -->
+                <div class="absolute left-[24px] md:left-1/2 top-0 bottom-0 w-[1px] bg-outline-variant/50"></div>
+                
+                <!-- Timeline Items -->
+                <div class="relative flex flex-col md:flex-row justify-between items-start md:items-center mb-16 fade-up group">
+                    <div class="hidden md:block w-1/2 pr-16 text-right">
+                        <h3 class="font-headline-md text-headline-md text-primary mb-2 group-hover:text-secondary transition-colors">Form Finding</h3>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant">Computational modeling to determine the optimal equilibrium shape under tension.</p>
+                    </div>
+                    <div class="absolute left-[16px] md:left-1/2 -ml-[8px] w-4 h-4 rounded-full bg-secondary border-4 border-surface z-10 group-hover:scale-150 transition-transform"></div>
+                    <div class="pl-20 md:pl-0 md:w-1/2 md:pl-16">
+                        <div class="md:hidden mb-2">
+                            <h3 class="font-headline-md text-2xl text-primary mb-2">Form Finding</h3>
+                            <p class="font-body-sm text-body-sm text-on-surface-variant">Computational modeling to determine the optimal equilibrium shape under tension.</p>
+                        </div>
+                        <span class="font-label-caps text-label-caps text-outline uppercase tracking-widest">Phase 01</span>
+                    </div>
+                </div>
+                
+                <div class="relative flex flex-col md:flex-row justify-between items-start md:items-center mb-16 fade-up group" style="transition-delay: 100ms;">
+                    <div class="hidden md:block w-1/2 pr-16 text-right">
+                        <span class="font-label-caps text-label-caps text-outline uppercase tracking-widest">Phase 02</span>
+                    </div>
+                    <div class="absolute left-[16px] md:left-1/2 -ml-[8px] w-4 h-4 rounded-full bg-secondary border-4 border-surface z-10 group-hover:scale-150 transition-transform"></div>
+                    <div class="pl-20 md:pl-0 md:w-1/2 md:pl-16">
+                        <h3 class="font-headline-md text-2xl md:text-headline-md text-primary mb-2 group-hover:text-secondary transition-colors">Structural Analysis</h3>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant">Non-linear analysis to calculate wind, snow, and pre-stress load capacities.</p>
+                        <span class="md:hidden font-label-caps text-label-caps text-outline uppercase tracking-widest mt-2 block">Phase 02</span>
+                    </div>
+                </div>
+                
+                <div class="relative flex flex-col md:flex-row justify-between items-start md:items-center fade-up group" style="transition-delay: 200ms;">
+                    <div class="hidden md:block w-1/2 pr-16 text-right">
+                        <h3 class="font-headline-md text-headline-md text-primary mb-2 group-hover:text-secondary transition-colors">Fabrication & Erection</h3>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant">Precision cutting, welding, and highly coordinated on-site tensioning sequences.</p>
+                    </div>
+                    <div class="absolute left-[16px] md:left-1/2 -ml-[8px] w-4 h-4 rounded-full bg-secondary border-4 border-surface z-10 group-hover:scale-150 transition-transform"></div>
+                    <div class="pl-20 md:pl-0 md:w-1/2 md:pl-16">
+                        <div class="md:hidden mb-2">
+                            <h3 class="font-headline-md text-2xl text-primary mb-2">Fabrication & Erection</h3>
+                            <p class="font-body-sm text-body-sm text-on-surface-variant">Precision cutting, welding, and highly coordinated on-site tensioning sequences.</p>
+                        </div>
+                        <span class="font-label-caps text-label-caps text-outline uppercase tracking-widest">Phase 03</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <!-- 4. Our Services & Offerings -->
+        <section class="py-stack-xl bg-surface" id="services">
+            <div class="max-w-container-max mx-auto px-6 md:px-margin-desktop">
+                <div class="text-center mb-16 fade-up">
+                    <span class="font-label-caps text-label-caps text-secondary uppercase tracking-[0.2em] mb-4 block">Capabilities</span>
+                    <h2 class="font-display-lg text-4xl md:text-5xl text-primary mb-6">Comprehensive Structural Solutions.</h2>
+                    <p class="max-w-2xl mx-auto font-body-lg text-on-surface-variant">End-to-End fabrication, engineering, and installation across a broad spectrum of architectural requirements.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service 1 -->
+                    <div class="group bg-surface-container-low border border-outline-variant/30 p-8 rounded-2xl fade-up hover:shadow-xl hover:border-primary/20 transition-all duration-300">
+                        <span class="material-symbols-outlined text-secondary text-4xl mb-6" data-icon="architecture">architecture</span>
+                        <h3 class="font-headline-sm text-2xl text-primary mb-3">Tensile Membrane Structures</h3>
+                        <p class="font-body-md text-on-surface-variant">Custom design, structural planning, and precise tensioning for large-span canopies, stadiums, and airport terminals.</p>
+                    </div>
+                    
+                    <!-- Service 2 -->
+                    <div class="group bg-surface-container-low border border-outline-variant/30 p-8 rounded-2xl fade-up hover:shadow-xl hover:border-primary/20 transition-all duration-300" style="transition-delay: 100ms;">
+                        <span class="material-symbols-outlined text-secondary text-4xl mb-6" data-icon="warehouse">warehouse</span>
+                        <h3 class="font-headline-sm text-2xl text-primary mb-3">PEB Sheds & Roofing</h3>
+                        <p class="font-body-md text-on-surface-variant">Pre-Engineered Building (PEB) steel structures and custom truss works with durable, color-coated GI, PPGI, or FRP sheets.</p>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="group bg-surface-container-low border border-outline-variant/30 p-8 rounded-2xl fade-up hover:shadow-xl hover:border-primary/20 transition-all duration-300" style="transition-delay: 200ms;">
+                        <span class="material-symbols-outlined text-secondary text-4xl mb-6" data-icon="door_front">door_front</span>
+                        <h3 class="font-headline-sm text-2xl text-primary mb-3">Modern Gates & Doors</h3>
+                        <p class="font-body-md text-on-surface-variant">Elevate your exterior with cohesive design concepts. We blend wood and metal to create striking, luxury main gates and doors.</p>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="group bg-surface-container-low border border-outline-variant/30 p-8 rounded-2xl fade-up hover:shadow-xl hover:border-primary/20 transition-all duration-300">
+                        <span class="material-symbols-outlined text-secondary text-4xl mb-6" data-icon="fence">fence</span>
+                        <h3 class="font-headline-sm text-2xl text-primary mb-3">Safety Grills & Railings</h3>
+                        <p class="font-body-md text-on-surface-variant">Coordinating balcony railings and front door safety grills to ensure visual harmony across your home's facade while maximizing security.</p>
+                    </div>
+
+                    <!-- Service 5 -->
+                    <div class="group bg-surface-container-low border border-outline-variant/30 p-8 rounded-2xl fade-up hover:shadow-xl hover:border-primary/20 transition-all duration-300" style="transition-delay: 100ms;">
+                        <span class="material-symbols-outlined text-secondary text-4xl mb-6" data-icon="stairs">stairs</span>
+                        <h3 class="font-headline-sm text-2xl text-primary mb-3">Spiral Stairs & Ramps</h3>
+                        <p class="font-body-md text-on-surface-variant">Space-saving architectural spiral stairs and heavy-duty, weather-resistant iron ramps for commercial and residential access transitions.</p>
+                    </div>
+
+                    <!-- Service 6 -->
+                    <div class="group bg-surface-container-low border border-outline-variant/30 p-8 rounded-2xl fade-up hover:shadow-xl hover:border-primary/20 transition-all duration-300" style="transition-delay: 200ms;">
+                        <span class="material-symbols-outlined text-secondary text-4xl mb-6" data-icon="deck">deck</span>
+                        <h3 class="font-headline-sm text-2xl text-primary mb-3">Pergolas & Outdoor Living</h3>
+                        <p class="font-body-md text-on-surface-variant">Transform traditional open-lattice garden structures into highly functional, all-weather outdoor living spaces with custom roofing.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Material Science -->
+        <section class="py-stack-xl bg-primary text-on-primary" id="materials">
+            <div class="max-w-container-max mx-auto px-6 md:px-margin-desktop">
+                <div class="mb-stack-md text-center fade-up">
+                    <h2 class="font-display-lg text-4xl md:text-display-lg mb-4">Material Science</h2>
+                    <p class="font-body-lg text-body-lg text-on-primary/70 max-w-2xl mx-auto">We utilize globally sourced, high-performance architectural fabrics designed for extreme longevity.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-gutter">
+                    <!-- Material Card -->
+                    <div class="bg-inverse-surface border-t-2 border-secondary p-8 rounded-2xl fade-up hover:-translate-y-4 transition-transform duration-500 shadow-2xl">
+                        <h3 class="font-headline-sm text-2xl mb-2">PTFE Fiberglass</h3>
+                        <p class="font-body-sm text-body-sm text-secondary-fixed-dim font-mono mb-6 border-b border-outline-variant/20 pb-4">Teflon-coated / 30+ Year Lifespan</p>
+                        <p class="font-body-md text-body-md text-on-primary/80 mb-6 min-h-[100px]">The gold standard for permanent structures. Completely immune to UV degradation, self-cleaning, and inherently fire-resistant.</p>
+                        <div class="h-40 bg-cover bg-center rounded-xl overflow-hidden group">
+                            <div class="w-full h-full transition-transform duration-700 group-hover:scale-110" style="background-image: url('assets/images/img-071.jpg')"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-inverse-surface border-t-2 border-secondary p-8 rounded-2xl fade-up hover:-translate-y-4 transition-transform duration-500 shadow-2xl" style="transition-delay: 100ms;">
+                        <h3 class="font-headline-sm text-2xl mb-2">ETFE Foils</h3>
+                        <p class="font-body-sm text-body-sm text-secondary-fixed-dim font-mono mb-6 border-b border-outline-variant/20 pb-4">Pneumatic Cushions / High Light Trans.</p>
+                        <p class="font-body-md text-body-md text-on-primary/80 mb-6 min-h-[100px]">Ultra-lightweight alternative to glass. Often used in multi-layer pneumatic cushions for superior thermal insulation and dramatic lighting.</p>
+                        <div class="h-40 bg-cover bg-center rounded-xl overflow-hidden group">
+                            <div class="w-full h-full transition-transform duration-700 group-hover:scale-110" style="background-image: url('assets/images/img-073.jpg')"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-inverse-surface border-t-2 border-secondary p-8 rounded-2xl fade-up hover:-translate-y-4 transition-transform duration-500 shadow-2xl" style="transition-delay: 200ms;">
+                        <h3 class="font-headline-sm text-2xl mb-2">Architectural PVC</h3>
+                        <p class="font-body-sm text-body-sm text-secondary-fixed-dim font-mono mb-6 border-b border-outline-variant/20 pb-4">PVDF Coated / Versatile & Durable</p>
+                        <p class="font-body-md text-body-md text-on-primary/80 mb-6 min-h-[100px]">Highly versatile polyester mesh coated with PVC and finished with PVDF lacquers for dirt resistance. Excellent balance of performance and cost.</p>
+                        <div class="h-40 bg-cover bg-center rounded-xl overflow-hidden group">
+                            <div class="w-full h-full transition-transform duration-700 group-hover:scale-110" style="background-image: url('assets/images/img-075.jpg')"></div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Real-time Site Installations -->
+                <div class="text-center mb-10 mt-20 fade-up" id="real-time-gallery">
+                    <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-[0.2em] mb-4 block">Real-time Progress & Installations</span>
+                    <h3 class="font-display-md text-3xl text-primary mb-6">Our Work In Action</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pb-10">
+                    <div class="flex flex-col gap-4">
+                        <div class="overflow-hidden rounded-xl border border-outline-variant/20 shadow-sm fade-up">
+                            <img src="assets/images/client/project-scalloped-shell.jpeg" alt="Scalloped Shell Canopy" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="overflow-hidden rounded-xl border border-outline-variant/20 shadow-sm fade-up">
+                            <img src="assets/images/client/project-temple-walkway.jpeg" alt="Temple Walkway Canopy" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <div class="overflow-hidden rounded-xl border border-outline-variant/20 shadow-sm fade-up">
+                            <img src="assets/images/client/project-stage-arch-1.jpeg" alt="Stage Arch Canopy" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="overflow-hidden rounded-xl border border-outline-variant/20 shadow-sm fade-up">
+                            <img src="assets/images/client/project-rooftop-conical.jpeg" alt="Rooftop Conical Canopy" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <div class="overflow-hidden rounded-xl border border-outline-variant/20 shadow-sm fade-up">
+                            <img src="assets/images/client/project-night-arch.jpeg" alt="Illuminated Night Canopy" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="overflow-hidden rounded-xl border border-outline-variant/20 shadow-sm fade-up">
+                            <img src="assets/images/client/project-driveway-cantilever.jpeg" alt="Cantilever Driveway Canopy" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <div class="overflow-hidden rounded-xl border border-outline-variant/20 shadow-sm fade-up">
+                            <img src="assets/images/client/project-multibay-parking-1.jpeg" alt="Multi-bay Parking Structure" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="overflow-hidden rounded-xl border border-outline-variant/20 shadow-sm fade-up">
+                            <img src="assets/images/client/project-conical-entrance.jpeg" alt="Conical Entrance Canopy" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 6. Contact & Maps Integration -->
+        <section class="py-stack-xl bg-surface border-t border-technical" id="contact">
+            <div class="max-w-container-max mx-auto px-6 md:px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+                
+                <!-- Left Side: Trust & Info -->
+                <div class="lg:col-span-7 fade-up flex flex-col justify-center">
+                    <span class="font-label-caps text-label-caps text-secondary uppercase tracking-[0.2em] mb-4 block">Request A Quote</span>
+                    <h2 class="font-display-lg text-4xl md:text-5xl text-primary mb-6">Let's Build The Next Landmark.</h2>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-xl">
+                        Get a free engineering assessment and transparent pricing for your project. Our experts respond within 2 hours.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                        <div class="flex items-start gap-4">
+                            <span class="material-symbols-outlined text-secondary text-2xl" data-icon="location_on">location_on</span>
+                            <p class="font-body-md text-on-surface-variant">#:12A02B, 13th Floor, Manjeera Trinity Corporate,<br/>JNTU-Hitech City Road, KPHB Phase 3,<br/>Kukatpally, Hyderabad.</p>
+                        </div>
+                        <div class="flex flex-col gap-5">
+                            <div class="flex items-start gap-4">
+                                <span class="material-symbols-outlined text-secondary text-2xl" data-icon="call">call</span>
+                                <div class="font-body-md text-on-surface-variant flex flex-col gap-1">
+                                    <a href="tel:+918978657768" class="hover:text-primary transition-colors font-medium">+91 89786-57768</a>
+                                    <a href="tel:+919666614700" class="hover:text-primary transition-colors font-medium">+91 96666-14700</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <span class="material-symbols-outlined text-secondary text-2xl" data-icon="mail">mail</span>
+                                <a href="mailto:info.tensarc@gmail.com" class="font-body-md text-on-surface-variant hover:text-primary transition-colors font-medium">info.tensarc@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Trusted By Strip inside Contact -->
+                    <div class="border-t border-outline-variant/20 pt-8 mb-10">
+                        <p class="font-label-caps text-xs text-on-surface-variant mb-6 uppercase tracking-widest font-bold">Trusted by Industry Leaders</p>
+                        <div class="flex flex-wrap items-center gap-6 md:gap-10 opacity-70 grayscale">
+                            <span class="font-display-md text-xl md:text-2xl text-primary font-bold tracking-tight">RAMOJI <span class="font-normal text-on-surface-variant">FILM CITY</span></span>
+                            <span class="font-display-md text-xl md:text-2xl text-primary font-bold tracking-tight">TATA <span class="font-normal text-on-surface-variant">ADVANCED</span></span>
+                            <span class="font-display-md text-xl md:text-2xl text-primary font-bold tracking-tight">HTC <span class="font-normal text-on-surface-variant">GLOBAL</span></span>
+                        </div>
+                    </div>
+
+                    <div class="h-[250px] md:h-[300px] w-full rounded-2xl overflow-hidden shadow-inner border border-outline-variant/20">
+                        <iframe 
+                            src="https://maps.google.com/maps?q=Manjeera+Trinity+Corporate,+KPHB+Phase+3,+Kukatpally,+Hyderabad&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+                
+                <!-- Right Side: Lead Capture Form -->
+                <div class="lg:col-span-5 fade-up" style="transition-delay: 100ms;">
+                    <div class="bg-surface-container-low border border-outline-variant/30 rounded-3xl p-6 md:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative overflow-hidden h-full flex flex-col justify-center">
+                        <!-- Decorative glow -->
+                        <div class="absolute top-0 right-0 w-64 h-64 bg-secondary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+                        
+                        <h3 class="font-headline-sm text-3xl text-primary mb-3 relative z-10">Get Your Estimate</h3>
+                        <p class="font-body-md text-on-surface-variant mb-8 relative z-10">Fill out the details below and an engineer will contact you shortly.</p>
+                        
+                        <form class="space-y-6 relative z-10">
+                            <div>
+                                <label class="block font-label-caps text-xs text-primary uppercase tracking-widest mb-2 font-bold">Name</label>
+                                <input type="text" placeholder="John Doe" class="w-full bg-surface border border-outline-variant/50 rounded-xl px-4 py-3.5 text-primary placeholder-on-surface-variant/50 focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all">
+                            </div>
+                            <div>
+                                <label class="block font-label-caps text-xs text-primary uppercase tracking-widest mb-2 font-bold">Phone</label>
+                                <input type="tel" placeholder="+91 90000 00000" class="w-full bg-surface border border-outline-variant/50 rounded-xl px-4 py-3.5 text-primary placeholder-on-surface-variant/50 focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all">
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block font-label-caps text-xs text-primary uppercase tracking-widest mb-2 font-bold">Project Type</label>
+                                    <select class="w-full bg-surface border border-outline-variant/50 rounded-xl px-4 py-3.5 text-primary focus:outline-none focus:border-secondary transition-all">
+                                        <option>Tensile Canopy</option>
+                                        <option>PEB Shed / Roof</option>
+                                        <option>Main Gates</option>
+                                        <option>Pergola</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block font-label-caps text-xs text-primary uppercase tracking-widest mb-2 font-bold">Area Size</label>
+                                    <input type="text" placeholder="e.g. 5000 sqft" class="w-full bg-surface border border-outline-variant/50 rounded-xl px-4 py-3.5 text-primary placeholder-on-surface-variant/50 focus:outline-none focus:border-secondary transition-all">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block font-label-caps text-xs text-primary uppercase tracking-widest mb-2 font-bold">Message (Optional)</label>
+                                <textarea placeholder="Tell us about your requirements..." rows="3" class="w-full bg-surface border border-outline-variant/50 rounded-xl px-4 py-3.5 text-primary placeholder-on-surface-variant/50 focus:outline-none focus:border-secondary transition-all resize-none"></textarea>
+                            </div>
+                            <button type="button" class="w-full lg:w-auto px-12 bg-primary text-on-primary font-label-caps text-label-caps uppercase tracking-[0.2em] py-4 rounded-full hover:bg-secondary transition-all duration-300 shadow-[0_8px_30px_rgba(var(--color-primary),0.3)] hover:shadow-[0_8px_30px_rgba(var(--color-secondary),0.4)] hover:-translate-y-1 mt-4 flex items-center justify-center gap-3">
+                                Submit Inquiry <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                            </button>
+                            <p class="text-center font-body-sm text-xs text-on-surface-variant/80 mt-4">🔒 Your information is 100% secure.</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full pt-16 pb-8 bg-surface-container-lowest border-t border-outline-variant/20">
+        <div class="max-w-container-max mx-auto px-6 md:px-margin-desktop flex flex-col md:flex-row justify-between items-start gap-12">
+            <div class="flex flex-col gap-6 max-w-sm">
+                <div class="flex items-center gap-3">
+                    <img alt="TENSARC Logo" class="h-6 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjCk-JXTbIPSPH3j6iymrcHJITGb4Dez2vrXAk-u5nwAIftAMmk27YKJBjsvXjKk8I9oPhkQWIZ0oOOwZD3w7nqpSSCgtydhrfB2222HrST9Rdr4nHMGiVg8vfsvPGr-wMXBC1X-fAEcAx3YfdBVPWNAywtVzG2iiN4P6tpdE6eAx0MhWuD61eB-ixp9caHD15W2fxjVOQJrEozn7N9QuVjJo1Lr7RzOqk9nvH79whKS-6m-07cPKCqSFD5cJrlh45FMe2YUs5v-Qi"/>
+                    <span class="font-display-lg text-xl font-bold tracking-tighter text-primary">TENSARC</span>
+                </div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Engineered to Endure. Masterpieces in membrane architecture, delivering world-class structural solutions.</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-8 w-full md:w-auto">
+                <div class="flex flex-col gap-4">
+                    <span class="font-label-caps text-label-caps uppercase tracking-widest text-primary">Company</span>
+                    <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="#about">About Us</a>
+                    <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="#projects">Projects</a>
+                    <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="#services">Services</a>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <span class="font-label-caps text-label-caps uppercase tracking-widest text-primary">Social</span>
+                    <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">LinkedIn</a>
+                    <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Instagram</a>
+                    <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Twitter</a>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <span class="font-label-caps text-label-caps uppercase tracking-widest text-primary">Legal</span>
+                    <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+                    <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="max-w-container-max mx-auto px-6 md:px-margin-desktop mt-16 pt-8 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="font-body-sm text-body-sm text-on-surface-variant/60">© 2024 TENSARC Structural Systems. All rights reserved.</p>
+            <p class="font-body-sm text-body-sm text-on-surface-variant/40">Secured & Protected Site</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>
