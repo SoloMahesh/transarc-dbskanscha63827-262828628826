@@ -1,3 +1,10 @@
+/*
+========================================================================
+© 2026 Mahesh Palalarthi. All Rights Reserved.
+PROPRIETARY & CONFIDENTIAL: This logic and codebase is the exclusive 
+property of Mahesh Palalarthi. Unauthorized copying is strictly prohibited.
+========================================================================
+*/
 // js/main.js
 
 document.addEventListener('DOMContentLoaded', () => {

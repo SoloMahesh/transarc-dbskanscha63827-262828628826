@@ -1,17 +1,21 @@
+/*
+========================================================================
+© 2026 Mahesh Palalarthi. All Rights Reserved.
+PROPRIETARY & CONFIDENTIAL: This styling and design architecture is the 
+exclusive property of Mahesh Palalarthi. Unauthorized copying is strictly prohibited.
+========================================================================
+*/
 /* css/style.css */
 
-/* Responsive Global UI Scaling (Mimics ~80% browser zoom on laptops) */
-html {
-    font-size: 16px;
-}
+/* Responsive Global UI Scaling (Literally applies an 80% zoom on laptops) */
 @media (min-width: 1024px) {
-    html {
-        font-size: 13.5px;
+    body {
+        zoom: 0.8;
     }
 }
 @media (min-width: 1536px) {
-    html {
-        font-size: 15px;
+    body {
+        zoom: 0.9;
     }
 }
 
