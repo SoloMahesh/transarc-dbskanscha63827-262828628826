@@ -610,10 +610,45 @@ installation images remain the property of the respective client.
         </div>
         
         <div class="max-w-container-max mx-auto px-6 md:px-margin-desktop mt-16 pt-8 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="font-body-sm text-body-sm text-on-surface-variant/60">© 2024 TENSARC Structural Systems. All rights reserved.</p>
-            <p class="font-body-sm text-body-sm text-on-surface-variant/40">Secured & Protected Site</p>
+            <p class="font-body-sm text-body-sm text-on-surface-variant/60">© 2026 TENSARC Structural Systems. All rights reserved.</p>
+            <div class="flex items-center gap-6">
+                <p class="font-body-sm text-body-sm text-on-surface-variant/40">Secured & Protected Site</p>
+                <button onclick="document.getElementById('dev-modal').classList.toggle('hidden')" class="text-on-surface-variant/60 hover:text-primary transition-colors flex items-center gap-2 group">
+                    <span class="material-symbols-outlined text-sm">code</span>
+                    <span class="font-label-caps text-[10px] tracking-widest uppercase">Developed by Mahesh</span>
+                </button>
+            </div>
         </div>
     </footer>
+
+    <!-- Developer Contact Modal -->
+    <div id="dev-modal" class="hidden fixed inset-0 z-[100] bg-surface/80 backdrop-blur-sm flex justify-center items-center p-6">
+        <div class="bg-inverse-surface text-inverse-on-surface p-8 rounded-2xl max-w-sm w-full shadow-2xl relative border border-outline-variant/10 fade-up visible">
+            <button onclick="document.getElementById('dev-modal').classList.add('hidden')" class="absolute top-4 right-4 text-inverse-on-surface/50 hover:text-primary transition-colors">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <div class="flex items-center gap-4 mb-6">
+                <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-on-primary font-display-sm text-2xl">M</div>
+                <div>
+                    <h4 class="font-display-sm text-xl text-primary">Mahesh Palaparthi</h4>
+                    <p class="font-body-xs text-xs opacity-70 font-mono tracking-widest uppercase">Lead Developer</p>
+                </div>
+            </div>
+            <div class="space-y-4 font-body-sm text-sm border-t border-outline-variant/20 pt-6">
+                <a href="mailto:palaparthimahesh1@gmail.com" class="flex items-center gap-3 hover:text-primary transition-colors">
+                    <span class="material-symbols-outlined opacity-70">mail</span>
+                    palaparthimahesh1@gmail.com
+                </a>
+                <a href="tel:+919999999999" class="flex items-center gap-3 hover:text-primary transition-colors">
+                    <span class="material-symbols-outlined opacity-70">call</span>
+                    Update with your Mobile Number
+                </a>
+            </div>
+            <div class="mt-8 pt-4 border-t border-outline-variant/10">
+                <p class="text-xs opacity-50 text-center font-mono">Available for world-class architectural web projects.</p>
+            </div>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script src="js/main.js"></script>
