@@ -7,15 +7,18 @@ exclusive property of Mahesh Palalarthi. Unauthorized copying is strictly prohib
 */
 /* css/style.css */
 
-/* Responsive Global UI Scaling (Literally applies an 80% zoom on laptops) */
+/* Responsive Global UI Scaling */
+html {
+    font-size: 16px;
+}
 @media (min-width: 1024px) {
-    body {
-        zoom: 0.8;
+    html {
+        font-size: 13.5px;
     }
 }
 @media (min-width: 1536px) {
-    body {
-        zoom: 0.9;
+    html {
+        font-size: 15px;
     }
 }
 
