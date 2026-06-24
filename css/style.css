@@ -7,21 +7,6 @@ exclusive property of Mahesh Palalarthi. Unauthorized copying is strictly prohib
 */
 /* css/style.css */
 
-/* Responsive Global UI Scaling */
-html {
-    font-size: 16px;
-}
-@media (min-width: 1024px) {
-    html {
-        font-size: 13.5px;
-    }
-}
-@media (min-width: 1536px) {
-    html {
-        font-size: 15px;
-    }
-}
-
 /* Core Styles and Overrides */
 .material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
